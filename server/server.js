@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
-app.use(require('..src/routes/index'));
+app.use(require('../src/routes/index'));
 // mongoose conexion
 mongoose.connect(process.env.URLBDD, {
     useNewUrlParser: true,

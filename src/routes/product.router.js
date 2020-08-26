@@ -8,7 +8,7 @@ let Product = require('../models/product.model');
 /**
  * GET al products
  */
-app.get('/productos', verificaToken, (req, res) => {
+app.get('/productos', verifyToken, (req, res) => {
     let start = req.query.start || 0;
     start = Number(start);
 
@@ -71,7 +71,7 @@ app.get('/productos/:id', (req, res) => {
 /**
  * GET products by filter
  */
-app.get('/product/find/:searchText', verificaToken, (req, res) => {
+app.get('/product/find/:searchText', verifyToken, (req, res) => {
 
     let searchText = req.params.searchText;
     let regex = new RegExp(searchText, 'i');

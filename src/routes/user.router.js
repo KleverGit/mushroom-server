@@ -46,13 +46,17 @@ app.get('/users', verifyToken, (req, res) => {
 /**
  * POST Method to save a new user
  */
-app.post('/user', verifyToken, function (req, res) {
+app.post('/user', function (req, res) {
 
     let body = req.body;
 
     let user = new User({
+        id_user: body.id_user,
         name: body.name,
         email: body.email,
+        gender: body.gender,
+        status: body.status,
+        created_at: body.created_at,
         password: bcrypt.hashSync(body.password, 10),
         role: body.role
     });

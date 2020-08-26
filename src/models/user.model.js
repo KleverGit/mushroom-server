@@ -15,7 +15,7 @@ let userSchema = new Schema({
         type: Number,
         required: true
     },
-    nombre: {
+    name: {
         type: String,
         required: [true, 'name required']
     },
@@ -42,8 +42,7 @@ let userSchema = new Schema({
         default: true
     },
     created_at: {
-        type: Boolean,
-        default: false
+        type: Date,
     }
 });
 
