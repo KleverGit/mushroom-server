@@ -7,7 +7,7 @@ const { verifyToken, verifyRole } = require('../middlewares/autenticacion');
 
 const app = express();
 
-app.get('/users', verifyToken, (req, res) => {
+app.get('/mushroom/users', verifyToken, (req, res) => {
 
     let start = req.query.start || 0;
     start = Number(start);
@@ -46,7 +46,7 @@ app.get('/users', verifyToken, (req, res) => {
 /**
  * POST Method to save a new user
  */
-app.post('/user', function (req, res) {
+app.post('/mushroom/user', function (req, res) {
 
     let body = req.body;
 
@@ -69,20 +69,17 @@ app.post('/user', function (req, res) {
                 err
             });
         }
-
         res.json({
             code: 201,
             user: userDB
         });
     });
-
-
 });
 
 /**
  * PUT Method to update user
  */
-app.put('/user/:id', verifyToken, function (req, res) {
+app.put('/mushroom/user/:id', verifyToken, function (req, res) {
 
     let id = req.params.id;
     let body = _.pick(req.body, ['name', 'email', 'role', 'status']);
@@ -108,7 +105,7 @@ app.put('/user/:id', verifyToken, function (req, res) {
 /**
  * DELETE Method to delete user
  */
-app.delete('/user/:id', verifyToken, function (req, res) {
+app.delete('/mushroom/user/:id', verifyToken, function (req, res) {
     let id = req.params.id;
     let userStatus = {
         estado: false

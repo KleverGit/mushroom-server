@@ -13,7 +13,7 @@ let Schema = mongoose.Schema;
 let userSchema = new Schema({
     id_user: {
         type: Number,
-        required: true
+        required: false
     },
     name: {
         type: String,
@@ -43,6 +43,7 @@ let userSchema = new Schema({
     },
     created_at: {
         type: Date,
+        required: false
     }
 });
 
